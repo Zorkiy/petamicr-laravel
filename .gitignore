@@ -15,7 +15,6 @@ yarn-error.log
 .fleet
 .idea
 /.vscode
-public/build
 petamicr.code-workspace
 tree_info_output.txt
 project_info.json

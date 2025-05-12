@@ -12,7 +12,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: '../public/build',
+        outDir: '/var/www/html/petamicr/public/build',
         emptyOutDir: true,
     },
 });
