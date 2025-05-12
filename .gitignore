@@ -16,7 +16,6 @@
 /petamicr/.idea
 /.vscode
 /petamicr/public/build
-/public_html/build
 tree_info_output.txt
 project_info.json
 db_info.json
