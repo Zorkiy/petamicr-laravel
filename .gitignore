@@ -23,3 +23,7 @@ phpinfo.php
 project_info.php
 tree_info.sh
 db_info.php
+petamicr_architecture_guide.md
+test.sql
+petamicr_conventions.md
+auto_commit.sh
