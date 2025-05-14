@@ -194,21 +194,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Локальний скоуп для вибірки тільки активних користувачів.
-     *
-     * Локальні скоупи дозволяють визначати загальні набори обмежень запитів,
-     * які можна легко повторно використовувати у вашому застосунку.
-     * Назва методу повинна починатися з 'scope', за яким слідує назва скоупа в CamelCase.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder<User>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<User>
-     */
-    public function scopeActive(Builder $query): Builder
-    {
-        return $query->where('is_active', true); // Припускаючи наявність колонки 'is_active'
-    }
-
-    /**
      * Локальний скоуп для вибірки користувачів певного типу (рівня).
      *
      * @param  \Illuminate\Database\Eloquent\Builder<User>  $query

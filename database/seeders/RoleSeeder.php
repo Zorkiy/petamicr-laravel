@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
 {
@@ -18,12 +17,8 @@ class RoleSeeder extends Seeder
             ['name' => 'VOHOR', 'description' => 'Доступ до VOHOR сервісів'],
         ];
 
-        foreach ($data as $row) {
-            if (!DB::table('roles')
-                ->where('name', $row['name'])
-                ->exists()) {
-                DB::table('roles')->insert($row);
-            }
+        foreach ($data as $edu_data) {
+            Role::firstOrCreate(['name' => $edu_data['name']], $edu_data);
         }
     }
 }
