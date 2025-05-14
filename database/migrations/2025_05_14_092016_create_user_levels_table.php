@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role_user', function (Blueprint $table) {
+        Schema::create('user_levels', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index('fk_ru_uid');
-            $table->foreignId('role_id')->constrained()->onDelete('cascade')->index('fk_ru_rid');
-            $table->primary(['user_id', 'role_id']);
+            $table->id();
+            $table->string('name')->unique('uq_ulvl_name');
+            $table->text('description')->nullable();
+            $table->integer('priority')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('role_user');
+        Schema::dropIfExists('user_levels');
     }
 };

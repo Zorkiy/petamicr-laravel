@@ -6,17 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('levels', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->integer('priority')->nullable();
+            $table->foreignId('user_id')->constrained('user_roles')->onDelete('cascade')->index('fk_ru_uid');
+            $table->foreignId('role_id')->constrained('user_roles')->onDelete('cascade')->index('fk_ru_rid');
+            $table->primary(['user_id', 'role_id']);
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('levels');
+        Schema::dropIfExists('role_user');
     }
 };

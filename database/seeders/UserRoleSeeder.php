@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
+use App\Models\UserRole;
 use Illuminate\Database\Seeder;
 
-class RoleSeeder extends Seeder
+class UserRoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,8 +17,8 @@ class RoleSeeder extends Seeder
             ['name' => 'VOHOR', 'description' => 'Доступ до VOHOR сервісів'],
         ];
 
-        foreach ($data as $edu_data) {
-            Role::firstOrCreate(['name' => $edu_data['name']], $edu_data);
+        foreach ($data as $elem) {
+            UserRole::firstOrCreate(['name' => $elem['name']], $elem);
         }
     }
 }

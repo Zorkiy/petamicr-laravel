@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('uuid')->unique();
+            $table->string('uuid')->unique('uq_fj_uuid');
             $table->text('connection');
             $table->text('queue');
             $table->longText('payload');

@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Level;
+use App\Models\UserLevel;
 
-class LevelSeeder extends Seeder
+class UserLevelSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,8 +21,8 @@ class LevelSeeder extends Seeder
             ['name' => 'Guest', 'description' => 'Гість', 'priority' => 6],
         ];
 
-        foreach ($data as $level_data) {
-            Level::firstOrCreate(['name' => $level_data['name']], $level_data);
+        foreach ($data as $elem) {
+            UserLevel::firstOrCreate(['name' => $elem['name']], $elem);
         }
     }
 }

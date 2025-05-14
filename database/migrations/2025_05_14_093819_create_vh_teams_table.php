@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('vh_teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->tinyInteger('teem_number', false, true)->unique('uq_vht_tn');
+            $table->string('name')->unique('uq_vht_name')->comment('Назва команди (об\'єкту)');
+            $table->text('description')->nullable()->comment('Опис команди або об\'єкту');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('vh_teams');
     }
 };

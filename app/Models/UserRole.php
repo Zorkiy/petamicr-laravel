@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Role extends Model
+class UserRole extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Role extends Model
      *
      * @var string
      */
-    protected $table = 'roles';
+    protected $table = 'user_roles';
 
     /**
      * Indicates if the model should be timestamped.
